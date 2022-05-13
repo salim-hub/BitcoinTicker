@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/list_bg"
+            tools:context=".view.CoinFragment">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TableLayout
+                android:id="@+id/tableLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:stretchColumns="1,2,3,4,5"
+                android:layout_margin="8dp">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.11"
+                        android:id="@+id/coinRank"
+                        android:text="@string/number_sign"
+                        android:textSize="12sp"
+                        android:textColor="@color/row_text_color"
+                        android:padding="10dp"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.17"
+                        android:id="@+id/coinHeader"
+                        android:text="@string/coin"
+                        android:textSize="12sp"
+                        android:textColor="@color/row_text_color"
+                        android:padding="10dp"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.2"
+                        android:id="@+id/priceHeader"
+                        android:text="@string/price"
+                        android:textSize="12sp"
+                        android:textColor="@color/row_text_color"
+                        android:padding="10dp"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.2"
+                        android:id="@+id/twentyFourHourChange"
+                        android:text="@string/_24h"
+                        android:textSize="12sp"
+                        android:textColor="@color/row_text_color"
+                        android:padding="10dp"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:id="@+id/marketCapHeader"
+                        android:text="@string/market_cap"
+                        android:textSize="12sp"
+                        android:textColor="@color/row_text_color"
+                        android:padding="10dp"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal"/>
+
+                </TableRow>
+            </TableLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/coinRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_margin="10dp"
+                tools:listitem="@layout/item_coin_list"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

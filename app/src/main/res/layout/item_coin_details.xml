@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="details"
+            type="com.salim.bitcointicker.network.dto.details.Details"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/list_bg">
+
+        <ImageView
+            android:id="@+id/coinImageIV"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:imageFromUrl="@{details.image.large}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="20dp"/>
+
+        <TextView
+            android:id="@+id/coinSymbolTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="BTC"
+            android:text="@{details.symbol}"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:layout_margin="20dp"
+            android:textAllCaps="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coinImageIV"/>
+
+        <LinearLayout
+            android:id="@+id/priceLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coinSymbolTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:layout_margin="12dp">
+
+            <TextView
+                android:id="@+id/currentPriceTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="$300,000.00"
+                app:price="@{details.marketData.currentPrice.usd}"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textSize="20sp"/>
+
+            <ImageView
+                android:id="@+id/changingDirection"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_arrow_up"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:contentDescription="@string/arrow_up" />
+
+            <TextView
+                android:id="@+id/priceChangePercentage24hTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="4.7%"
+                android:text="@{Double.toString(details.marketData.marketCapChangePercentage24h)}"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/hashingAlgorithmTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/priceLinearLayout"
+            tools:text="HASHING ALGORITHM"
+            android:text="@{details.hashingAlgorithm}"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="12dp"
+            android:layout_margin="12dp" />
+
+        <EditText
+            android:id="@+id/refreshIntervalET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:ems="10"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_margin="12dp"
+            android:hint="@string/refresh_interval"
+            android:textColorHint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hashingAlgorithmTV"
+            android:inputType="number"
+            android:importantForAutofill="no" />
+
+        <TextView
+            android:id="@+id/descriptionTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/refreshIntervalET"
+            tools:text="Description"
+            android:text="@{details.description.en}"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="12dp"
+            android:layout_margin="12dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

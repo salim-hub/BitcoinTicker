@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "36212632701",
+    "project_id": "bitcoin-ticker-4ab08",
+    "storage_bucket": "bitcoin-ticker-4ab08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36212632701:android:1ab1adc9eba68dd2bdd514",
+        "android_client_info": {
+          "package_name": "com.salim.bitcointicker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36212632701-8k5dbfj4la2e466cfagrdnjf1url26gb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.salim.bitcointicker",
+            "certificate_hash": "b6931f5d29fdd9d9738af3dad976335f351cc613"
+          }
+        },
+        {
+          "client_id": "36212632701-5c1a55vvqa1dd5l21avh0amhepllbtar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMKyio5LDxO9z-Ngohn1ct1v5RYbHYRLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36212632701-5c1a55vvqa1dd5l21avh0amhepllbtar.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
